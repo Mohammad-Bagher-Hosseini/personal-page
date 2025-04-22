@@ -7,31 +7,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="theme-toggle-track">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="theme-toggle-thumb"></div>
+    </button>
+
     <header>
         <div class="logo"></div>
         <nav>
             <ul>
-                <li><a href="index.html">صفحه اصلی</a></li>
-                <li><a href="projects.html">پروژه ها</a></li>
-                <li><a href="other-works.html" class="active">کار های جانبی</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="other-works.html" class="active">Other Works</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="profile-section">
             <div class="content">
-                <div class="work-grid">
-                    <div class="work-card">
+                <h1>Other Works</h1>
+                <div class="list-container">
+                    <div class="list-item">
                         <h2>Teaching</h2>
                         <p class="brief">Brief description of teaching experience</p>
-                        <div class="work-details">
+                        <div class="details">
                             <p>Detailed description of teaching activities and achievements.</p>
                         </div>
                     </div>
-                    <div class="work-card">
+                    <div class="list-item">
                         <h2>Voluntary</h2>
                         <p class="brief">Brief description of voluntary work</p>
-                        <div class="work-details">
+                        <div class="details">
                             <p>Detailed description of voluntary activities and contributions.</p>
                         </div>
                     </div>
@@ -39,5 +53,43 @@
             </div>
         </section>
     </main>
+
+    <script>
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorOutline = document.querySelector('.cursor-outline');
+
+      window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        setTimeout(() => {
+          cursorOutline.style.left = `${posX - 13}px`;
+          cursorOutline.style.top = `${posY - 13}px`;
+        }, 50);
+      });
+
+      // Theme toggle script
+      const themeToggle = document.querySelector('.theme-toggle');
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        // Save theme preference
+        if (document.body.classList.contains('light-mode')) {
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    </script>
 </body>
 </html> 

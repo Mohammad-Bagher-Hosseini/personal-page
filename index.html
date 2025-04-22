@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   </head>
   <body>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="theme-toggle-track">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="theme-toggle-thumb"></div>
+    </button>
+
     <header>
       <div class="logo"></div>
       <nav>
@@ -19,21 +33,72 @@
     </header>
     <main>
       <section class="profile-section">
-        <div class="profile-image">
-          <img src="placeholder-image.jpg" alt="Profile Image">
+        <div class="profile-container">
+          <div class="profile-left">
+            <div class="profile-image">
+              <img src="profile.jpg" alt="Profile">
+            </div>
+          </div>
+          <div class="profile-right">
+            <div class="bio-section">
+              <h2>Bio</h2>
+              <p>Your professional bio goes here. Write about your expertise, skills, and professional journey.</p>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com/Mohammad-Bagher-Hosseini" class="github-link">
+                <img src="github-icon.svg" alt="GitHub">
+                GitHub Profile
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="social-links">
-          <a href="#" class="github-link">GitHub</a>
-          <a href="#" class="instagram-link">Instagram</a>
-        </div>
-        <div class="content">
-          <!-- Content will be different for each page -->
-          <div class="text-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>This is where I showcase my work and projects.</p>
+        
+        <div class="brief-life">
+          <h2>Brief Life</h2>
+          <div class="content">
+            <p>Share your life story, experiences, and journey here. This section can include your educational background, career milestones, and personal achievements.</p>
           </div>
         </div>
       </section>
     </main>
+
+    <script>
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorOutline = document.querySelector('.cursor-outline');
+
+      window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // Add slight delay to outline for smooth effect
+        setTimeout(() => {
+          cursorOutline.style.left = `${posX - 13}px`;
+          cursorOutline.style.top = `${posY - 13}px`;
+        }, 50);
+      });
+
+      // Theme toggle script
+      const themeToggle = document.querySelector('.theme-toggle');
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        
+        // Save theme preference
+        if (document.body.classList.contains('light-mode')) {
+          localStorage.setItem('theme', 'light');
+        } else {
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    </script>
   </body>
 </html>
