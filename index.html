@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <!-- Custom Cursor Elements -->
@@ -14,11 +17,11 @@
 
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" aria-label="Toggle theme">
-        <div class="theme-toggle-track">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-        </div>
-        <div class="theme-toggle-thumb"></div>
+      <div class="theme-toggle-track">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+      </div>
+      <div class="theme-toggle-thumb"></div>
     </button>
 
     <header>
@@ -36,46 +39,61 @@
         <div class="profile-container">
           <div class="profile-left">
             <div class="profile-image">
-              <img src="profile.jpg" alt="Profile">
+              <img src="profile.jpg" alt="Profile" />
             </div>
           </div>
           <div class="profile-right">
             <div class="bio-section">
               <h2>Bio</h2>
-              <p>I am a Bachelor student in the Department of Computer Engineering at AmirKabir university(Poly technique of Tehran). </p>
+              <p>
+                I am a Bachelor student in the Department of Computer
+                Engineering at AmirKabir university(Polytechnic of Tehran).
+              </p>
             </div>
             <div class="social-links">
-              <a href="https://github.com/Mohammad-Bagher-Hosseini" class="github-link">
-                <img src="github-icon.svg" alt="GitHub">
+              <a
+                href="https://github.com/Mohammad-Bagher-Hosseini"
+                class="github-link"
+              >
+                <img src="github-icon.svg" alt="GitHub" />
                 GitHub Profile
               </a>
             </div>
           </div>
         </div>
-        
+
         <div class="brief-life">
           <h2>Brief Life</h2>
           <div class="content">
-            <p>Before joining Poly technique I studied at Besat education institute and won a Bronze Medal of National Chemistry Olympiad and Silver Medal of National Nano Technology Olympiad and Bronze Medal of Provincial Science Olympiad</p>
+            <p>
+              Before joining Polytechnic I studied at Besat education institute
+              and won a Bronze Medal of National Chemistry Olympiad and Silver
+              Medal of National Nano Technology Olympiad and Bronze Medal of
+              Provincial Science Olympiad
+            </p>
           </div>
         </div>
       </section>
 
       <!-- Easter Eggs -->
       <div class="easter-egg konami-egg">
-          <a href="https://www.retrogames.cc/arcade-games/pac-man.html" target="_blank">🎮 Play Pac-Man!</a>
+        <a
+          href="https://www.retrogames.cc/arcade-games/pac-man.html"
+          target="_blank"
+          >🎮 Play Pac-Man!</a
+        >
       </div>
 
       <!-- Theme Toggle Easter Egg -->
       <div class="easter-egg theme-toggle-egg">
-          <a href="https://2048.io/" target="_blank">🎮 Play 2048!</a>
-          <p>You found a secret game!</p>
+        <a href="https://2048.io/" target="_blank">🎮 Play 2048!</a>
+        <p>You found a secret game!</p>
       </div>
     </main>
 
     <script>
-      const cursorDot = document.querySelector('.cursor-dot');
-      const cursorOutline = document.querySelector('.cursor-outline');
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorOutline = document.querySelector(".cursor-outline");
 
       // Initialize cursor position
       function updateCursorPosition(x, y) {
@@ -88,7 +106,7 @@
       // Set initial position to center of viewport
       updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
 
-      window.addEventListener('mousemove', (e) => {
+      window.addEventListener("mousemove", (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
 
@@ -102,16 +120,27 @@
       });
 
       // Easter Egg: Konami Code
-      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+      const konamiCode = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
       let konamiIndex = 0;
 
-      document.addEventListener('keydown', (e) => {
+      document.addEventListener("keydown", (e) => {
         if (e.key === konamiCode[konamiIndex]) {
           konamiIndex++;
           if (konamiIndex === konamiCode.length) {
-            document.querySelector('.konami-egg').classList.add('show');
+            document.querySelector(".konami-egg").classList.add("show");
             setTimeout(() => {
-              document.querySelector('.konami-egg').classList.remove('show');
+              document.querySelector(".konami-egg").classList.remove("show");
             }, 5000);
             konamiIndex = 0;
           }
@@ -121,12 +150,12 @@
       });
 
       // Profile Image Easter Egg
-      const profileImage = document.querySelector('.profile-image');
+      const profileImage = document.querySelector(".profile-image");
       let profileClickCount = 0;
       let lastProfileClick = 0;
 
       if (profileImage) {
-        profileImage.addEventListener('click', (e) => {
+        profileImage.addEventListener("click", (e) => {
           const now = Date.now();
           if (now - lastProfileClick > 500) {
             profileClickCount = 0;
@@ -135,65 +164,66 @@
           lastProfileClick = now;
 
           if (profileClickCount === 3) {
-            const egg = document.createElement('div');
-            egg.className = 'easter-egg profile-game-egg';
-            egg.innerHTML = '<a href="https://tetris.com/play-tetris" target="_blank">🎮 Play Tetris!</a>';
+            const egg = document.createElement("div");
+            egg.className = "easter-egg profile-game-egg";
+            egg.innerHTML =
+              '<a href="https://tetris.com/play-tetris" target="_blank">🎮 Play Tetris!</a>';
             profileImage.appendChild(egg);
-            egg.classList.add('show');
-            
+            egg.classList.add("show");
+
             setTimeout(() => {
-              egg.classList.remove('show');
+              egg.classList.remove("show");
               setTimeout(() => egg.remove(), 300);
             }, 3000);
-            
+
             profileClickCount = 0;
           }
         });
       }
 
       // Theme toggle and easter egg
-      const themeToggle = document.querySelector('.theme-toggle');
+      const themeToggle = document.querySelector(".theme-toggle");
       let themeClickCount = 0;
       let lastThemeClick = 0;
 
-      themeToggle.addEventListener('click', () => {
+      themeToggle.addEventListener("click", () => {
         const currentTime = Date.now();
-        
+
         // Check if click is within 500ms of last click
         if (currentTime - lastThemeClick < 500) {
           themeClickCount++;
           if (themeClickCount >= 5) {
-            themeToggle.classList.add('rapid-clicking');
+            themeToggle.classList.add("rapid-clicking");
           }
           if (themeClickCount === 10) {
-            const egg = document.querySelector('.theme-toggle-egg');
-            egg.classList.add('show');
+            const egg = document.querySelector(".theme-toggle-egg");
+            egg.classList.add("show");
             setTimeout(() => {
-              egg.classList.remove('show');
-              themeToggle.classList.remove('rapid-clicking');
+              egg.classList.remove("show");
+              themeToggle.classList.remove("rapid-clicking");
             }, 3000);
             themeClickCount = 0;
           }
         } else {
           themeClickCount = 1;
-          themeToggle.classList.remove('rapid-clicking');
+          themeToggle.classList.remove("rapid-clicking");
         }
-        
+
         lastThemeClick = currentTime;
 
         // Original theme toggle functionality
-        document.body.classList.toggle('light-mode');
-        if (document.body.classList.contains('light-mode')) {
-          localStorage.setItem('theme', 'light');
+        document.body.classList.toggle("light-mode");
+        if (document.body.classList.contains("light-mode")) {
+          localStorage.setItem("theme", "light");
         } else {
-          localStorage.setItem('theme', 'dark');
+          localStorage.setItem("theme", "dark");
         }
       });
 
       // Check for saved theme preference
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
       }
     </script>
   </body>
