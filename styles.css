@@ -351,6 +351,8 @@ h1 {
 .theme-toggle-track i {
     color: white;
     font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
 }
 
 .theme-toggle-thumb {
@@ -367,6 +369,10 @@ h1 {
 body.light-mode .theme-toggle {
     background: var(--color-wisteria);
     border-color: var(--color-dark-purple);
+}
+
+body.light-mode .theme-toggle-track i {
+    color: var(--color-dark-purple);
 }
 
 body.light-mode .theme-toggle-thumb {
@@ -458,4 +464,298 @@ body.light-mode .social-links a img {
 
 body.light-mode .social-links a:hover img {
     filter: brightness(0) invert(1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 206, 203, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(0, 206, 203, 0.6); }
+    100% { box-shadow: 0 0 5px rgba(0, 206, 203, 0.2); }
+}
+
+/* Apply animations to elements */
+.profile-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.profile-image {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.bio-section, .brief-life {
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bio-section:hover, .brief-life:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.list-item {
+    animation: slideIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.list-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.list-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+nav a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-maize);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+body.light-mode nav a::after {
+    background: var(--color-razzmatazz);
+}
+
+nav a:hover::after {
+    width: 80%;
+}
+
+.theme-toggle {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle-thumb {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Enhanced cursor animations */
+.cursor-dot {
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.cursor-outline {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Glow effect for active elements */
+nav a.active {
+    animation: glow 2s infinite;
+}
+
+/* Smooth theme transition */
+body {
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+/* Hover effect for list items */
+.list-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-item:hover {
+    transform: translateX(10px) translateY(-5px);
+}
+
+/* Pulse animation for profile image on page load */
+.profile-image {
+    animation: pulse 2s ease-in-out;
+}
+
+/* Smooth transitions for light/dark mode */
+body.light-mode .profile-container,
+body.light-mode .bio-section,
+body.light-mode .brief-life,
+body.light-mode .content,
+body.light-mode .list-item,
+body.light-mode header,
+body.light-mode nav a,
+body.light-mode .social-links a {
+    transition: all 0.3s ease;
+}
+
+/* Mobile animations */
+@media (max-width: 768px) {
+    .list-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .profile-container,
+    .bio-section,
+    .brief-life {
+        animation: fadeIn 0.6s ease-out;
+    }
+}
+
+/* Easter Eggs */
+.easter-egg {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.easter-egg.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.konami-egg {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: var(--color-maize);
+    text-decoration: none;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    border: 2px solid var(--color-razzmatazz);
+}
+
+.profile-game-egg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+.profile-game-egg a {
+    color: var(--color-maize);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 2px solid var(--color-razzmatazz);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.profile-game-egg a:hover {
+    background: var(--color-razzmatazz);
+    color: white;
+}
+
+/* Light mode styles for easter eggs */
+body.light-mode .konami-egg {
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--color-pink-lavender);
+    border-color: var(--color-sky-magenta);
+}
+
+body.light-mode .profile-game-egg {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .profile-game-egg a {
+    color: var(--color-sky-magenta);
+    border-color: var(--color-sky-magenta);
+}
+
+body.light-mode .profile-game-egg a:hover {
+    background: var(--color-sky-magenta);
+    color: white;
+}
+
+.theme-toggle-egg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid var(--color-razzmatazz);
+    text-align: center;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 9999;
+}
+
+.theme-toggle-egg.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.theme-toggle-egg a {
+    color: var(--color-maize);
+    text-decoration: none;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.theme-toggle-egg p {
+    color: var(--color-robin-blue);
+    font-size: 16px;
+    margin: 0;
+}
+
+body.light-mode .theme-toggle-egg {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--color-sky-magenta);
+}
+
+body.light-mode .theme-toggle-egg a {
+    color: var(--color-sky-magenta);
+}
+
+body.light-mode .theme-toggle-egg p {
+    color: var(--color-pink-lavender);
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+.theme-toggle.rapid-clicking {
+    animation: shake 0.2s ease-in-out infinite;
 } 

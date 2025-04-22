@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Other Works - Personal Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Custom Cursor Elements -->
@@ -54,6 +55,17 @@
         </section>
     </main>
 
+    <!-- Easter Eggs -->
+    <div class="easter-egg konami-egg">
+        <a href="https://www.retrogames.cc/arcade-games/pac-man.html" target="_blank">🎮 Play Pac-Man!</a>
+    </div>
+
+    <!-- Theme Toggle Easter Egg -->
+    <div class="easter-egg theme-toggle-egg">
+        <a href="https://2048.io/" target="_blank">🎮 Play 2048!</a>
+        <p>You found a secret game!</p>
+    </div>
+
     <script>
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorOutline = document.querySelector('.cursor-outline');
@@ -71,25 +83,69 @@
         }, 50);
       });
 
-      // Theme toggle script
-      const themeToggle = document.querySelector('.theme-toggle');
+      // Easter Egg: Konami Code
+      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+      let konamiIndex = 0;
 
-      // Check for saved theme preference
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
-      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            document.querySelector('.konami-egg').classList.add('show');
+            setTimeout(() => {
+              document.querySelector('.konami-egg').classList.remove('show');
+            }, 5000);
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      // Theme toggle and easter egg
+      const themeToggle = document.querySelector('.theme-toggle');
+      let themeClickCount = 0;
+      let lastThemeClick = 0;
 
       themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
+        const currentTime = Date.now();
         
-        // Save theme preference
+        // Check if click is within 500ms of last click
+        if (currentTime - lastThemeClick < 500) {
+          themeClickCount++;
+          if (themeClickCount >= 5) {
+            themeToggle.classList.add('rapid-clicking');
+          }
+          if (themeClickCount === 10) {
+            const egg = document.querySelector('.theme-toggle-egg');
+            egg.classList.add('show');
+            setTimeout(() => {
+              egg.classList.remove('show');
+              themeToggle.classList.remove('rapid-clicking');
+            }, 3000);
+            themeClickCount = 0;
+          }
+        } else {
+          themeClickCount = 1;
+          themeToggle.classList.remove('rapid-clicking');
+        }
+        
+        lastThemeClick = currentTime;
+
+        // Original theme toggle functionality
+        document.body.classList.toggle('light-mode');
         if (document.body.classList.contains('light-mode')) {
           localStorage.setItem('theme', 'light');
         } else {
           localStorage.setItem('theme', 'dark');
         }
       });
+
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+      }
     </script>
 </body>
 </html> 
