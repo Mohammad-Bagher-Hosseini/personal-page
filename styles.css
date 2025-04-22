@@ -17,24 +17,30 @@
 
 /* Cursor Styles */
 .cursor-dot {
-    width: 5px;
-    height: 5px;
+    width: 8px;
+    height: 8px;
     background-color: var(--color-razzmatazz);
     position: fixed;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    box-shadow: 0 0 10px var(--color-razzmatazz);
 }
 
 .cursor-outline {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: 2px solid var(--color-razzmatazz);
     position: fixed;
     border-radius: 50%;
     pointer-events: none;
     z-index: 9998;
-    transition: transform 0.1s;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease;
+    box-shadow: 0 0 20px rgba(246, 16, 103, 0.3);
 }
 
 /* Hide default cursor */
@@ -45,10 +51,73 @@
     cursor: none !important;
 }
 
-/* Add hover effect for clickable elements */
+/* Enhanced hover effects */
 a:hover ~ .cursor-outline,
-button:hover ~ .cursor-outline {
+button:hover ~ .cursor-outline,
+.theme-toggle:hover ~ .cursor-outline {
     transform: scale(1.5);
+    border-color: var(--color-robin-blue);
+    box-shadow: 0 0 30px rgba(0, 206, 203, 0.4);
+}
+
+a:hover ~ .cursor-dot,
+button:hover ~ .cursor-dot,
+.theme-toggle:hover ~ .cursor-dot {
+    transform: scale(1.5);
+    background-color: var(--color-robin-blue);
+    box-shadow: 0 0 15px var(--color-robin-blue);
+}
+
+/* Click animation */
+a:active ~ .cursor-outline,
+button:active ~ .cursor-outline,
+.theme-toggle:active ~ .cursor-outline {
+    transform: scale(0.8);
+    border-color: var(--color-maize);
+}
+
+a:active ~ .cursor-dot,
+button:active ~ .cursor-dot,
+.theme-toggle:active ~ .cursor-dot {
+    transform: scale(0.8);
+    background-color: var(--color-maize);
+}
+
+/* Light mode cursor styles */
+body.light-mode .cursor-dot {
+    background-color: var(--color-dark-purple);
+    box-shadow: 0 0 10px var(--color-dark-purple);
+}
+
+body.light-mode .cursor-outline {
+    border-color: var(--color-dark-purple);
+    box-shadow: 0 0 20px rgba(108, 117, 125, 0.3);
+}
+
+body.light-mode a:hover ~ .cursor-outline,
+body.light-mode button:hover ~ .cursor-outline,
+body.light-mode .theme-toggle:hover ~ .cursor-outline {
+    border-color: var(--color-sky-magenta);
+    box-shadow: 0 0 30px rgba(52, 58, 64, 0.4);
+}
+
+body.light-mode a:hover ~ .cursor-dot,
+body.light-mode button:hover ~ .cursor-dot,
+body.light-mode .theme-toggle:hover ~ .cursor-dot {
+    background-color: var(--color-sky-magenta);
+    box-shadow: 0 0 15px var(--color-sky-magenta);
+}
+
+body.light-mode a:active ~ .cursor-outline,
+body.light-mode button:active ~ .cursor-outline,
+body.light-mode .theme-toggle:active ~ .cursor-outline {
+    border-color: var(--color-pink-lavender);
+}
+
+body.light-mode a:active ~ .cursor-dot,
+body.light-mode button:active ~ .cursor-dot,
+body.light-mode .theme-toggle:active ~ .cursor-dot {
+    background-color: var(--color-pink-lavender);
 }
 
 body {

@@ -70,6 +70,17 @@
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorOutline = document.querySelector('.cursor-outline');
 
+      // Initialize cursor position
+      function updateCursorPosition(x, y) {
+        cursorDot.style.left = `${x}px`;
+        cursorDot.style.top = `${y}px`;
+        cursorOutline.style.left = `${x - 20}px`;
+        cursorOutline.style.top = `${y - 20}px`;
+      }
+
+      // Set initial position to center of viewport
+      updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
+
       window.addEventListener('mousemove', (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
@@ -78,8 +89,8 @@
         cursorDot.style.top = `${posY}px`;
 
         setTimeout(() => {
-          cursorOutline.style.left = `${posX - 13}px`;
-          cursorOutline.style.top = `${posY - 13}px`;
+          cursorOutline.style.left = `${posX - 20}px`;
+          cursorOutline.style.top = `${posY - 20}px`;
         }, 50);
       });
 

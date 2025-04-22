@@ -37,20 +37,41 @@
                 <h1>Projects</h1>
                 <div class="list-container">
                     <div class="list-item">
-                        <h2>Project 1</h2>
-                        <p class="brief">Brief description of Project 1</p>
+                        <h2>TweetAP</h2>
+                        <p class="brief">AP course project</p>
                         <div class="details">
-                            <p>Detailed description of the project and its features.</p>
+                            <p>Advanced Programing course project for a micro X (Twitter) written in
+                              Java with Hibernate ORM connected to PostgreSQL for makes an
+                              experience like X app</p>
                         </div>
                     </div>
                     <div class="list-item">
-                        <h2>Project 2</h2>
-                        <p class="brief">Brief description of Project 2</p>
+                        <h2>Samane Moadian</h2>
+                        <p class="brief">Connecting to TaxOrganization API</p>
                         <div class="details">
-                            <p>Detailed description of the project and its features.</p>
+                            <p>A product written in PHP with MySQL database for storing, managing
+                              and send invoices to Tax organization api</p>
                         </div>
                     </div>
-                </div>
+                    <div class="list-item">
+                        <h2>Samane Moadian 2</h2>
+                        <p class="brief">Connecting to TaxOrganization API</p>
+                        <div class="details">
+                            <p>A product written in Kotlin with MySQL, Spring Boot framework and
+                              Docker compose for storing, managing and send invoices to Tax
+                              organization api
+                              </p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                      <h2>Samane Moadian 3</h2>
+                      <p class="brief">Connecting to TaxOrganization API</p>
+                      <div class="details">
+                          <p>A product written in Kotlin with MySQL and MongoDB, Spring Boot
+                            framework, GraphQL and Docker compose, Bash scripting for Dev Ops
+                            for storing, managing and send invoices to Tax organization api                            
+                            </p>
+                  </div>
             </div>
         </section>
     </main>
@@ -70,6 +91,17 @@
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorOutline = document.querySelector('.cursor-outline');
 
+      // Initialize cursor position
+      function updateCursorPosition(x, y) {
+        cursorDot.style.left = `${x}px`;
+        cursorDot.style.top = `${y}px`;
+        cursorOutline.style.left = `${x - 20}px`;
+        cursorOutline.style.top = `${y - 20}px`;
+      }
+
+      // Set initial position to center of viewport
+      updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
+
       window.addEventListener('mousemove', (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
@@ -78,8 +110,8 @@
         cursorDot.style.top = `${posY}px`;
 
         setTimeout(() => {
-          cursorOutline.style.left = `${posX - 13}px`;
-          cursorOutline.style.top = `${posY - 13}px`;
+          cursorOutline.style.left = `${posX - 20}px`;
+          cursorOutline.style.top = `${posY - 20}px`;
         }, 50);
       });
 

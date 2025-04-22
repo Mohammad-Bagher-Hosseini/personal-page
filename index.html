@@ -42,7 +42,7 @@
           <div class="profile-right">
             <div class="bio-section">
               <h2>Bio</h2>
-              <p>Your professional bio goes here. Write about your expertise, skills, and professional journey.</p>
+              <p>I am a Bachelor student in the Department of Computer Engineering at AmirKabir university(Poly technique of Tehran). </p>
             </div>
             <div class="social-links">
               <a href="https://github.com/Mohammad-Bagher-Hosseini" class="github-link">
@@ -56,7 +56,7 @@
         <div class="brief-life">
           <h2>Brief Life</h2>
           <div class="content">
-            <p>Share your life story, experiences, and journey here. This section can include your educational background, career milestones, and personal achievements.</p>
+            <p>Before joining Poly technique I studied at Besat education institute and won a Bronze Medal of National Chemistry Olympiad and Silver Medal of National Nano Technology Olympiad and Bronze Medal of Provincial Science Olympiad</p>
           </div>
         </div>
       </section>
@@ -77,6 +77,17 @@
       const cursorDot = document.querySelector('.cursor-dot');
       const cursorOutline = document.querySelector('.cursor-outline');
 
+      // Initialize cursor position
+      function updateCursorPosition(x, y) {
+        cursorDot.style.left = `${x}px`;
+        cursorDot.style.top = `${y}px`;
+        cursorOutline.style.left = `${x - 20}px`;
+        cursorOutline.style.top = `${y - 20}px`;
+      }
+
+      // Set initial position to center of viewport
+      updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
+
       window.addEventListener('mousemove', (e) => {
         const posX = e.clientX;
         const posY = e.clientY;
@@ -85,8 +96,8 @@
         cursorDot.style.top = `${posY}px`;
 
         setTimeout(() => {
-          cursorOutline.style.left = `${posX - 13}px`;
-          cursorOutline.style.top = `${posY - 13}px`;
+          cursorOutline.style.left = `${posX - 20}px`;
+          cursorOutline.style.top = `${posY - 20}px`;
         }, 50);
       });
 
