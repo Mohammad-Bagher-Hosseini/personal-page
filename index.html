@@ -102,29 +102,36 @@
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorOutline = document.querySelector(".cursor-outline");
 
-      // Initialize cursor position
-      function updateCursorPosition(x, y) {
-        cursorDot.style.left = `${x}px`;
-        cursorDot.style.top = `${y}px`;
-        cursorOutline.style.left = `${x - 20}px`;
-        cursorOutline.style.top = `${y - 20}px`;
+      // Only initialize cursor on desktop devices
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        // Initialize cursor position
+        function updateCursorPosition(x, y) {
+          cursorDot.style.left = `${x}px`;
+          cursorDot.style.top = `${y}px`;
+          cursorOutline.style.left = `${x - 20}px`;
+          cursorOutline.style.top = `${y - 20}px`;
+        }
+
+        // Set initial position to center of viewport
+        updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
+
+        window.addEventListener("mousemove", (e) => {
+          const posX = e.clientX;
+          const posY = e.clientY;
+
+          cursorDot.style.left = `${posX}px`;
+          cursorDot.style.top = `${posY}px`;
+
+          setTimeout(() => {
+            cursorOutline.style.left = `${posX - 20}px`;
+            cursorOutline.style.top = `${posY - 20}px`;
+          }, 50);
+        });
+      } else {
+        // Hide cursor elements on mobile
+        cursorDot.style.display = "none";
+        cursorOutline.style.display = "none";
       }
-
-      // Set initial position to center of viewport
-      updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
-
-      window.addEventListener("mousemove", (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        setTimeout(() => {
-          cursorOutline.style.left = `${posX - 20}px`;
-          cursorOutline.style.top = `${posY - 20}px`;
-        }, 50);
-      });
 
       // Easter Egg: Konami Code
       const konamiCode = [

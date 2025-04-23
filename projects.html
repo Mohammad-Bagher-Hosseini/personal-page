@@ -1,131 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects - Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" aria-label="Toggle theme">
-        <div class="theme-toggle-track">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-        </div>
-        <div class="theme-toggle-thumb"></div>
+      <div class="theme-toggle-track">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+      </div>
+      <div class="theme-toggle-thumb"></div>
     </button>
 
     <header>
-        <div class="logo"></div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                <li><a href="other-works.html">Other Works</a></li>
-            </ul>
-        </nav>
+      <div class="logo"></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="other-works.html">Other Works</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section class="profile-section">
-            <div class="content">
-                <h1>Projects</h1>
-                <div class="list-container">
-                    <div class="list-item">
-                        <h2>TweetAP</h2>
-                        <p class="brief">AP course project</p>
-                        <div class="details">
-                            <p>Advanced Programing course project for a micro X (Twitter) written in
-                              Java with Hibernate ORM connected to PostgreSQL for makes an
-                              experience like X app</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <h2>Samane Moadian</h2>
-                        <p class="brief">Connecting to TaxOrganization API</p>
-                        <div class="details">
-                            <p>A product written in PHP with MySQL database for storing, managing
-                              and send invoices to Tax organization api</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <h2>Samane Moadian 2</h2>
-                        <p class="brief">Connecting to TaxOrganization API</p>
-                        <div class="details">
-                            <p>A product written in Kotlin with MySQL, Spring Boot framework and
-                              Docker compose for storing, managing and send invoices to Tax
-                              organization api
-                              </p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                      <h2>Samane Moadian 3</h2>
-                      <p class="brief">Connecting to TaxOrganization API</p>
-                      <div class="details">
-                          <p>A product written in Kotlin with MySQL and MongoDB, Spring Boot
-                            framework, GraphQL and Docker compose, Bash scripting for Dev Ops
-                            for storing, managing and send invoices to Tax organization api                            
-                            </p>
-                  </div>
+      <section class="profile-section">
+        <div class="content">
+          <h1>Projects</h1>
+          <content class="list-container">
+            <div class="list-item">
+              <h2>TweetAP</h2>
+              <p class="brief">AP course project</p>
+              <div class="details">
+                <p>
+                  Advanced Programing course project for a micro X (Twitter)
+                  written in Java with Hibernate ORM connected to PostgreSQL for
+                  makes an experience like X app
+                </p>
+              </div>
             </div>
-        </section>
+            <div class="list-item">
+              <h2>Samane Moadian</h2>
+              <p class="brief">Connecting to TaxOrganization API</p>
+              <div class="details">
+                <p>
+                  A product written in PHP with MySQL database for storing,
+                  managing and send invoices to Tax organization api
+                </p>
+              </div>
+            </div>
+            <div class="list-item">
+              <h2>Samane Moadian 2</h2>
+              <p class="brief">Connecting to TaxOrganization API</p>
+              <div class="details">
+                <p>
+                  A product written in Kotlin with MySQL, Spring Boot framework
+                  and Docker compose for storing, managing and send invoices to
+                  Tax organization api
+                </p>
+              </div>
+            </div>
+            <div class="list-item">
+              <h2>Samane Moadian 3</h2>
+              <p class="brief">Connecting to TaxOrganization API</p>
+              <div class="details">
+                <p>
+                  A product written in Kotlin with MySQL and MongoDB, Spring
+                  Boot framework, GraphQL and Docker compose, Bash scripting for
+                  Dev Ops for storing, managing and send invoices to Tax
+                  organization api
+                </p>
+              </div>
+            </div>
+          </content>
+        </div>
+      </section>
     </main>
 
     <!-- Easter Eggs -->
     <div class="easter-egg konami-egg">
-        <a href="https://www.retrogames.cc/arcade-games/pac-man.html" target="_blank">🎮 Play Pac-Man!</a>
+      <a
+        href="https://www.retrogames.cc/arcade-games/pac-man.html"
+        target="_blank"
+        >🎮 Play Pac-Man!</a
+      >
     </div>
 
     <!-- Theme Toggle Easter Egg -->
     <div class="easter-egg theme-toggle-egg">
-        <a href="https://2048.io/" target="_blank">🎮 Play 2048!</a>
-        <p>You found a secret game!</p>
+      <a href="https://2048.io/" target="_blank">🎮 Play 2048!</a>
+      <p>You found a secret game!</p>
     </div>
 
     <script>
-      const cursorDot = document.querySelector('.cursor-dot');
-      const cursorOutline = document.querySelector('.cursor-outline');
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorOutline = document.querySelector(".cursor-outline");
 
-      // Initialize cursor position
-      function updateCursorPosition(x, y) {
-        cursorDot.style.left = `${x}px`;
-        cursorDot.style.top = `${y}px`;
-        cursorOutline.style.left = `${x - 20}px`;
-        cursorOutline.style.top = `${y - 20}px`;
+      // Only initialize cursor on desktop devices
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        // Initialize cursor position
+        function updateCursorPosition(x, y) {
+          cursorDot.style.left = `${x}px`;
+          cursorDot.style.top = `${y}px`;
+          cursorOutline.style.left = `${x - 20}px`;
+          cursorOutline.style.top = `${y - 20}px`;
+        }
+
+        // Set initial position to center of viewport
+        updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
+
+        window.addEventListener("mousemove", (e) => {
+          const posX = e.clientX;
+          const posY = e.clientY;
+
+          cursorDot.style.left = `${posX}px`;
+          cursorDot.style.top = `${posY}px`;
+
+          setTimeout(() => {
+            cursorOutline.style.left = `${posX - 20}px`;
+            cursorOutline.style.top = `${posY - 20}px`;
+          }, 50);
+        });
+      } else {
+        // Hide cursor elements on mobile
+        cursorDot.style.display = "none";
+        cursorOutline.style.display = "none";
       }
 
-      // Set initial position to center of viewport
-      updateCursorPosition(window.innerWidth / 2, window.innerHeight / 2);
-
-      window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-
-        setTimeout(() => {
-          cursorOutline.style.left = `${posX - 20}px`;
-          cursorOutline.style.top = `${posY - 20}px`;
-        }, 50);
-      });
-
       // Easter Egg: Konami Code
-      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+      const konamiCode = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
       let konamiIndex = 0;
 
-      document.addEventListener('keydown', (e) => {
+      document.addEventListener("keydown", (e) => {
         if (e.key === konamiCode[konamiIndex]) {
           konamiIndex++;
           if (konamiIndex === konamiCode.length) {
-            document.querySelector('.konami-egg').classList.add('show');
+            document.querySelector(".konami-egg").classList.add("show");
             setTimeout(() => {
-              document.querySelector('.konami-egg').classList.remove('show');
+              document.querySelector(".konami-egg").classList.remove("show");
             }, 5000);
             konamiIndex = 0;
           }
@@ -135,49 +169,49 @@
       });
 
       // Theme toggle and easter egg
-      const themeToggle = document.querySelector('.theme-toggle');
+      const themeToggle = document.querySelector(".theme-toggle");
       let themeClickCount = 0;
       let lastThemeClick = 0;
 
-      themeToggle.addEventListener('click', () => {
+      themeToggle.addEventListener("click", () => {
         const currentTime = Date.now();
-        
+
         // Check if click is within 500ms of last click
         if (currentTime - lastThemeClick < 500) {
           themeClickCount++;
           if (themeClickCount >= 5) {
-            themeToggle.classList.add('rapid-clicking');
+            themeToggle.classList.add("rapid-clicking");
           }
           if (themeClickCount === 10) {
-            const egg = document.querySelector('.theme-toggle-egg');
-            egg.classList.add('show');
+            const egg = document.querySelector(".theme-toggle-egg");
+            egg.classList.add("show");
             setTimeout(() => {
-              egg.classList.remove('show');
-              themeToggle.classList.remove('rapid-clicking');
+              egg.classList.remove("show");
+              themeToggle.classList.remove("rapid-clicking");
             }, 3000);
             themeClickCount = 0;
           }
         } else {
           themeClickCount = 1;
-          themeToggle.classList.remove('rapid-clicking');
+          themeToggle.classList.remove("rapid-clicking");
         }
-        
+
         lastThemeClick = currentTime;
 
         // Original theme toggle functionality
-        document.body.classList.toggle('light-mode');
-        if (document.body.classList.contains('light-mode')) {
-          localStorage.setItem('theme', 'light');
+        document.body.classList.toggle("light-mode");
+        if (document.body.classList.contains("light-mode")) {
+          localStorage.setItem("theme", "light");
         } else {
-          localStorage.setItem('theme', 'dark');
+          localStorage.setItem("theme", "dark");
         }
       });
 
       // Check for saved theme preference
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
       }
     </script>
-</body>
-</html> 
+  </body>
+</html>
