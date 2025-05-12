@@ -85,21 +85,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Easter Eggs -->
-      <div class="easter-egg konami-egg">
-        <a
-          href="https://www.retrogames.cc/arcade-games/pac-man.html"
-          target="_blank"
-          >🎮 Play Pac-Man!</a
-        >
-      </div>
-
-      <!-- Theme Toggle Easter Egg -->
-      <div class="easter-egg theme-toggle-egg">
-        <a href="https://2048.io/" target="_blank">🎮 Play 2048!</a>
-        <p>You found a secret game!</p>
-      </div>
     </main>
 
     <script>
@@ -137,98 +122,10 @@
         cursorOutline.style.display = "none";
       }
 
-      // Easter Egg: Konami Code
-      const konamiCode = [
-        "ArrowUp",
-        "ArrowUp",
-        "ArrowDown",
-        "ArrowDown",
-        "ArrowLeft",
-        "ArrowRight",
-        "ArrowLeft",
-        "ArrowRight",
-        "b",
-        "a",
-      ];
-      let konamiIndex = 0;
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === konamiCode[konamiIndex]) {
-          konamiIndex++;
-          if (konamiIndex === konamiCode.length) {
-            document.querySelector(".konami-egg").classList.add("show");
-            setTimeout(() => {
-              document.querySelector(".konami-egg").classList.remove("show");
-            }, 5000);
-            konamiIndex = 0;
-          }
-        } else {
-          konamiIndex = 0;
-        }
-      });
-
-      // Profile Image Easter Egg
-      const profileImage = document.querySelector(".profile-image");
-      let profileClickCount = 0;
-      let lastProfileClick = 0;
-
-      if (profileImage) {
-        profileImage.addEventListener("click", (e) => {
-          const now = Date.now();
-          if (now - lastProfileClick > 500) {
-            profileClickCount = 0;
-          }
-          profileClickCount++;
-          lastProfileClick = now;
-
-          if (profileClickCount === 3) {
-            const egg = document.createElement("div");
-            egg.className = "easter-egg profile-game-egg";
-            egg.innerHTML =
-              '<a href="https://tetris.com/play-tetris" target="_blank">🎮 Play Tetris!</a>';
-            profileImage.appendChild(egg);
-            egg.classList.add("show");
-
-            setTimeout(() => {
-              egg.classList.remove("show");
-              setTimeout(() => egg.remove(), 300);
-            }, 3000);
-
-            profileClickCount = 0;
-          }
-        });
-      }
-
-      // Theme toggle and easter egg
+      // Theme toggle
       const themeToggle = document.querySelector(".theme-toggle");
-      let themeClickCount = 0;
-      let lastThemeClick = 0;
 
       themeToggle.addEventListener("click", () => {
-        const currentTime = Date.now();
-
-        // Check if click is within 500ms of last click
-        if (currentTime - lastThemeClick < 500) {
-          themeClickCount++;
-          if (themeClickCount >= 5) {
-            themeToggle.classList.add("rapid-clicking");
-          }
-          if (themeClickCount === 10) {
-            const egg = document.querySelector(".theme-toggle-egg");
-            egg.classList.add("show");
-            setTimeout(() => {
-              egg.classList.remove("show");
-              themeToggle.classList.remove("rapid-clicking");
-            }, 3000);
-            themeClickCount = 0;
-          }
-        } else {
-          themeClickCount = 1;
-          themeToggle.classList.remove("rapid-clicking");
-        }
-
-        lastThemeClick = currentTime;
-
         // Original theme toggle functionality
         document.body.classList.toggle("light-mode");
         if (document.body.classList.contains("light-mode")) {

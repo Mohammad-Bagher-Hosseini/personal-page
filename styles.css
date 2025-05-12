@@ -821,140 +821,14 @@ body.light-mode .social-links a {
   }
 }
 
-/* Easter Eggs */
-.easter-egg {
-  position: fixed;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 9999;
-}
-
-.easter-egg.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.konami-egg {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  color: var(--color-maize);
-  text-decoration: none;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
-  border: 2px solid var(--color-razzmatazz);
-}
-
-.profile-game-egg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 8px;
-}
-
-.profile-game-egg a {
-  color: var(--color-maize);
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px 20px;
-  border: 2px solid var(--color-razzmatazz);
-  border-radius: 5px;
+/* Smooth transitions for light/dark mode */
+body.light-mode .profile-container,
+body.light-mode .bio-section,
+body.light-mode .brief-life,
+body.light-mode .content,
+body.light-mode .list-item,
+body.light-mode header,
+body.light-mode nav a,
+body.light-mode .social-links a {
   transition: all 0.3s ease;
-}
-
-.profile-game-egg a:hover {
-  background: var(--color-razzmatazz);
-  color: white;
-}
-
-/* Light mode styles for easter eggs */
-body.light-mode .konami-egg {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--color-pink-lavender);
-  border-color: var(--color-sky-magenta);
-}
-
-body.light-mode .profile-game-egg {
-  background: rgba(255, 255, 255, 0.9);
-}
-
-body.light-mode .profile-game-egg a {
-  color: var(--color-sky-magenta);
-  border-color: var(--color-sky-magenta);
-}
-
-body.light-mode .profile-game-egg a:hover {
-  background: var(--color-sky-magenta);
-  color: white;
-}
-
-.theme-toggle-egg {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: rgba(0, 0, 0, 0.95);
-  padding: 30px;
-  border-radius: 15px;
-  border: 3px solid var(--color-razzmatazz);
-  text-align: center;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  z-index: 9999;
-}
-
-.theme-toggle-egg.show {
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.theme-toggle-egg a {
-  color: var(--color-maize);
-  text-decoration: none;
-  font-size: 24px;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.theme-toggle-egg p {
-  color: var(--color-robin-blue);
-  font-size: 16px;
-  margin: 0;
-}
-
-body.light-mode .theme-toggle-egg {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: var(--color-sky-magenta);
-}
-
-body.light-mode .theme-toggle-egg a {
-  color: var(--color-sky-magenta);
-}
-
-body.light-mode .theme-toggle-egg p {
-  color: var(--color-pink-lavender);
-}
-
-@keyframes shake {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-5deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
-}
-
-.theme-toggle.rapid-clicking {
-  animation: shake 0.2s ease-in-out infinite;
 }
